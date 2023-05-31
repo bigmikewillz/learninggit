@@ -2,7 +2,7 @@
 
 # Author: Michael Williams
 # Company: None
-# Purpose: Check the battery status on a Intel and Apple silicon device
+# Purpose: Check the battery status on an Intel and Apple silicon device
 # Created 31/05/2023
 
 ################################################################################
@@ -45,8 +45,6 @@ elif [ "$arch" == "i386" ]; then
 else
 	echo "<result>Unknown Battery Status</result>"
 fi
-
-
 
 ScriptLogging "======== Ending $scriptName Script ========"
 
