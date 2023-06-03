@@ -19,7 +19,7 @@ LogLocation="/var/log/jamf.log"
 # Logging Function for reporting actions
 ScriptLogging(){
 	
-	logHeader="$(date +%a" "%b" "%d" "%T) $(hostname) $(echo jamf-S[$$]):"
+	logHeader="$(date +"%a" "%b" "%d" "%T") $(hostname) $(echo jamf-S[$$]):"
 	LOG="$LogLocation"
 	
 	echo "$logHeader" " $1" >> $LOG
