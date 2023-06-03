@@ -4,8 +4,10 @@ jobs:
   firstjob:
     runs-on: macos-13
     steps:
-      - name: Print Greating
-        run: echo "Hello World"
-      - name: say goodbye
-        run: echo "Bye for now"
-
+      - name: Get my code
+        uses: actions/checkout@v3.5.2
+      - name: check the shell script
+        uses: ludeeus/action-shellcheck@master
+      
+      
+      
