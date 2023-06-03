@@ -10,9 +10,9 @@
 ################################################################################
 
 # Store current users username and real name
-currentUser="$(ls -la /dev/console | cut -d " " -f 4)"
-realName=$(id -P $(stat -f%Su /dev/console) | awk -F '[:]' '{print $8}')
-policyDate=$(date)
+#currentUser="$(ls -la /dev/console | cut -d " " -f 4)"
+#realName=$(id -P $(stat -f%Su /dev/console) | awk -F '[:]' '{print $8}')
+#policyDate=$(date)
 scriptName=$(basename "$0")
 LogLocation="/var/log/jamf.log"
 
@@ -41,10 +41,12 @@ arch=$(/usr/bin/arch)
 if [ "$arch" == "arm64" ]; then
 	capacity=$(system_profiler SPPowerDataType | grep "Maximum Capacity:" | sed 's/.*Maximum Capacity: //')
 	echo "<result>$(system_profiler SPPowerDataType | grep "Condition:" | sed 's/.*Condition: //') with $capacity capacity</result>"
+	ScriptLogging "battery status excicuted"
 	elif [ "$arch" == "i386" ]; then
 	echo "<result>$(system_profiler SPPowerDataType | grep "Condition:" | sed 's/.*Condition: //')</result>"
 	else
 	echo "<result>Unknown Battery Status</result>"
+	ScriptLogging "Unable to find battery status"
 fi
 
 ScriptLogging "======== Ending $scriptName Script ========"
