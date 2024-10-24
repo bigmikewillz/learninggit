@@ -1,0 +1,25 @@
+name: Battery Check
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  battery-check:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Install ShellCheck
+      run: brew install shellcheck
+
+    - name: Run ShellCheck on Battery_checker.sh
+      run: shellcheck Battery_checker.sh
+
+    - name: Run Battery Check Script
+      shell: bash
+      run: ./Battery_checker.sh
