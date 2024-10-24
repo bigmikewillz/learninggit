@@ -22,4 +22,4 @@ jobs:
 
     - name: Run Battery Check Script
       shell: bash
-      run: ./Battery_checker.sh
+      run: sudo ./Battery_checker.sh
